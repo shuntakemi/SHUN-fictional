@@ -1,0 +1,1268 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+/* ========================================
+   SHUN — 共通設定
+   ======================================== */
+
+:root {
+  --green: #07182f;
+  --paper: #0b1e38;
+  --ink: #edf3fb;
+  --white: #f4f7fc;
+  --navy: #06152b;
+
+  --header-height: 76px;
+  --anchor-gap: 100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  scroll-padding-top: var(--anchor-gap);
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+  color: var(--white);
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   共通の背景動画
+   ======================================== */
+
+.site-background {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  pointer-events: none;
+}
+
+.site-background video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.site-background-overlay {
+  position: absolute;
+  inset: 0;
+  display: block !important;
+  background: rgba(3, 13, 32, 0.48);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+
+.site-header {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: var(--header-height);
+  padding: 22px 3.2vw;
+
+  color: #fff !important;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  mix-blend-mode: normal;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.45s ease;
+}
+
+/* ABOUT選択中だけ黒色 */
+.site-header nav a.is-active[href="#about-title"] {
+  color: #000 !important;
+}
+
+/* ========================================
+   ヘッダー：背景に合わせた文字色
+   ======================================== */
+
+/* 暗い背景 */
+.site-header.is-dark-bg,
+.site-header.is-dark-bg a {
+  color: #f4f7fc !important;
+}
+
+/* 明るい背景 */
+.site-header.is-light-bg,
+.site-header.is-light-bg a {
+  color: #14243a !important;
+}
+
+/* 表示中のセクション */
+.site-header nav a.is-active {
+  color: #537ab2 !important;
+}
+
+/* ホバー時 */
+.site-header nav a:hover {
+  color: #345474 !important;
+  transition: color 0.3s ease;
+}
+
+/* 色の変化を滑らかにする */
+.site-header nav a,
+.site-header .logo {
+  transition: color 0.3s ease;
+}
+
+.monogram {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 35px;
+  line-height: 1;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.site-header nav a,
+.small-nav {
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+
+.site-header a {
+  color: #f4f7fc;
+}
+
+.site-header a:hover {
+  color: #12477c !important;
+  transition: color 0.3s ease;
+}
+
+/* ========================================
+   オープニング
+   ======================================== */
+
+.opening {
+  position: relative;
+  height: 500vh;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+.opening-pin {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  isolation: auto;
+  background: transparent !important;
+  border: 0;
+}
+
+.opening-bg,
+.bg-green,
+.bg-leaf,
+.bg-water,
+.opening-video,
+.opening-overlay {
+  display: none !important;
+}
+
+.opening-vignette {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: transparent !important;
+  pointer-events: none;
+}
+
+.signature,
+.brand-lockup,
+.opening-copy,
+.opening-footer {
+  opacity: 1;
+  filter: blur(0);
+  will-change: opacity, filter;
+}
+
+.signature {
+  position: absolute;
+  inset: 8% -1% 8%;
+  width: 102%;
+  height: 84%;
+  overflow: visible;
+
+  fill: none;
+  stroke: rgba(221, 225, 209, 0.65);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.12));
+  pointer-events: none;
+}
+
+.signature path {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+}
+
+.signature-wave {
+  stroke-width: 1.2;
+}
+
+.signature-low {
+  opacity: 0.85;
+}
+
+.brand-lockup {
+  position: absolute;
+  top: 9%;
+  left: 50%;
+  color: #e4e8dc;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.brand-mark {
+  width: 48px;
+  height: 55px;
+  margin: 0 auto 7px;
+
+  border: 1px solid rgba(231, 232, 220, 0.7);
+  border-radius: 50%;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px;
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -6px;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  line-height: 1.05;
+  letter-spacing: 0.4px;
+}
+
+.brand-name span {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 7px;
+  letter-spacing: 1.2px;
+}
+
+.opening-copy {
+  position: absolute;
+  bottom: 5.5%;
+  left: 50%;
+  width: min(92%, 700px);
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.eyebrow {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+}
+
+.opening-copy h1 {
+  margin: 12px 0 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 43px);
+  font-weight: 300;
+  letter-spacing: -0.8px;
+}
+
+.microcopy {
+  font-size: 7px;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  opacity: 0.8;
+}
+
+.opening-footer {
+  position: absolute;
+  right: 3.2vw;
+  bottom: 24px;
+  left: 3.2vw;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 7px;
+  letter-spacing: 1.5px;
+}
+
+/* ========================================
+   各セクション共通
+   ======================================== */
+
+.section {
+  position: relative;
+}
+
+/* ========================================
+   ABOUT
+   ======================================== */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  min-height: 100vh;
+  margin: 0;
+  padding: 100px 6vw 60px;
+
+  text-align: center;
+}
+
+/* ABOUTの本文コンテナ
+   transformで上下移動させず、レイアウト位置を固定する */
+
+.about-content {
+  position: relative;
+  width: min(800px, 90%);
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  opacity: 0;
+  filter: blur(14px);
+
+  transform: none;
+  will-change: opacity, filter;
+}
+
+.about-content h1 {
+  width: 100%;
+  margin: 0 0 32px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.about-content p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 2.2;
+  text-align: center;
+}
+
+.about > p {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+
+  font-size: 20px;
+  line-height: 2.2;
+  text-align: center;
+
+  transform: none;
+}
+
+.jp-intro {
+  width: min(90%, 700px);
+  margin: 0 auto;
+
+  font-size: 12px;
+  line-height: 2.3;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.small-nav {
+  opacity: 0.65;
+}
+
+.about-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: end;
+  gap: 8vw;
+}
+
+.section-index {
+  padding-bottom: 8vh;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  opacity: 0.5;
+}
+
+.about-image {
+  height: 35vh;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37, 108, 71, 0.2),
+      rgba(0, 0, 0, 0.1)
+    ),
+    radial-gradient(
+      ellipse at 40% 40%,
+      rgba(111, 166, 206, 0.5),
+      rgba(12, 46, 79, 0.5) 45%,
+      rgba(3, 17, 37, 0.8)
+    );
+
+  background-size: cover;
+}
+
+/* ========================================
+   PROJECTS / STORY
+   ======================================== */
+
+.story {
+  position: relative;
+  z-index: 5;
+
+  display: grid;
+  min-height: 120vh;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 6vw;
+
+  margin-top: 0;
+  padding: 12vh 8vw;
+
+  color: var(--white);
+  background: rgba(5, 18, 39, 0.82);
+}
+
+.story-image {
+  height: 75vh;
+  min-height: 450px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(17, 25, 21, 0.08),
+      rgba(17, 25, 21, 0.3)
+    ),
+    radial-gradient(
+      ellipse at 48% 65%,
+      #e9e5d5 0%,
+      #939d8b 20%,
+      #45564b 55%,
+      #1d2c24 100%
+    );
+
+  background-size: cover;
+  filter: grayscale(100%) contrast(1.08);
+}
+
+.story-copy {
+  max-width: 540px;
+  align-self: center;
+}
+
+.story-copy .eyebrow {
+  margin-bottom: 24px;
+}
+
+.story-copy h2 {
+  margin: 0 0 35px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4.4vw, 65px);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -1.7px;
+}
+
+.jp-copy {
+  font-size: 11px;
+  line-height: 2.5;
+  letter-spacing: 1px;
+}
+
+.en-copy {
+  margin-top: 35px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   VISUALS
+   ======================================== */
+
+.visuals {
+  padding: 14vh 7vw;
+  color: var(--white);
+  background: rgba(7, 25, 49, 0.88);
+}
+
+.visuals > .eyebrow {
+  margin-bottom: 45px;
+}
+
+/* VISUALS：画像サイズ調整 */
+.visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.visual-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 24vw;
+  max-height: 340px;
+  overflow: hidden;
+}
+
+.visual-card span {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.visual-one {
+  background:
+    radial-gradient(
+      ellipse at 40% 45%,
+      #a6c69a,
+      #417b51 35%,
+      #193b2b 80%
+    );
+}
+
+.visual-two {
+  background:
+    radial-gradient(
+      ellipse at 60% 25%,
+      #d9d6c9,
+      #6c7869 28%,
+      #202e27 78%
+    );
+}
+
+/* 3枚目も同じサイズ・同じ列に配置 */
+.visual-three {
+  height: 32vw;
+  grid-column: auto;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      #a6a99a,
+      #34493d 38%,
+      #101e18 80%
+    );
+}
+
+.visual-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.visual-card:hover img {
+  transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .visual-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .visual-card {
+    height: 28vw;
+    max-height: 180px;
+  }
+}
+
+/* スマートフォン */
+@media (max-width: 700px) {
+  .visual-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .visual-card,
+  .visual-three {
+    height: 35vw;
+    max-height: none;
+  }
+
+  .visual-card span {
+    bottom: 6px;
+    left: 5px;
+    font-size: 6px;
+    letter-spacing: 0.3px;
+  }
+}
+/* ========================================
+   CONTACT
+   ======================================== */
+
+.contact {
+  padding: 18vh 20px;
+  color: var(--white);
+  text-align: center;
+  background: rgba(3, 16, 36, 0.82);
+}
+
+.contact h2 {
+  margin: 25px 0 38px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 80px);
+  font-weight: 300;
+  line-height: 0.98;
+}
+
+.contact > a {
+  display: inline-block;
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 25px 3.2vw;
+
+  color: var(--white);
+  font-size: 8px;
+  letter-spacing: 1.4px;
+
+  background: rgba(2, 11, 27, 0.9);
+  opacity: 0.8;
+}
+
+/* ========================================
+   アンカー移動
+   HTMLの見出しIDを移動先に使う場合
+   ======================================== */
+
+#about-title,
+#projects-title {
+  scroll-margin-top: var(--anchor-gap);
+}
+
+/* ========================================
+   スマートフォン
+   ======================================== */
+
+@media (max-width: 700px) {
+  :root {
+    --header-height: 60px;
+    --anchor-gap: 80px;
+  }
+
+  .site-header {
+    padding: 17px 20px;
+  }
+
+  .site-header nav {
+    gap: 12px;
+  }
+
+  .site-header nav a {
+    color: #fff !important;
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+
+  .opening {
+    height: 440vh;
+  }
+
+  .brand-lockup {
+    top: 12%;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 46px;
+    font-size: 43px;
+  }
+
+  .opening-copy {
+    bottom: 7%;
+  }
+
+  .opening-copy h1 {
+    font-size: 30px;
+  }
+
+  .microcopy {
+    font-size: 6px;
+  }
+
+  .opening-footer {
+    right: 20px;
+    bottom: 17px;
+    left: 20px;
+    font-size: 6px;
+  }
+
+  .signature {
+    inset: 12% -15% 10%;
+    width: 130%;
+    height: 75%;
+  }
+
+  .about {
+    min-height: 105vh;
+    padding: 100px 24px 60px;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .about-content h1 {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+
+  .about-content p {
+    font-size: 14px;
+  }
+
+  .about-top {
+    display: block;
+  }
+
+  .small-nav {
+    margin-top: 35px;
+    font-size: 7px;
+  }
+
+  .jp-intro {
+    font-size: 11px;
+  }
+
+  .about-bottom {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .section-index {
+    padding-bottom: 0;
+    font-size: 22px;
+  }
+
+  .about-image {
+    height: 34vh;
+  }
+
+  .story {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 80px 24px;
+  }
+
+  .story-image {
+    height: 48vh;
+    min-height: 280px;
+    grid-row: 2;
+  }
+
+  .story-copy {
+    max-width: none;
+  }
+
+  .story-copy h2 {
+    font-size: 43px;
+  }
+
+  .visuals {
+    padding: 90px 22px;
+  }
+
+  .visual-grid {
+    gap: 10px;
+  }
+
+  .visual-card {
+    height: 55vw;
+  }
+
+  .visual-three {
+    height: 45vw;
+  }
+
+  .visual-card span {
+    bottom: 7px;
+    left: 7px;
+    font-size: 6px;
+  }
+
+  .contact {
+    padding: 110px 20px;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 7px;
+  }
+
+  .site-background video {
+    object-position: center;
+  }
+}
+
+/* ========================================
+   動きを減らす設定が有効な端末への配慮
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .signature,
+  .brand-lockup,
+  .opening-copy,
+  .opening-footer {
+    will-change: auto;
+  }
+}
+
+/* ========================================
+   カスタムカーソル
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+    background: rgb(29, 65, 89);
+
+    pointer-events: none;
+    z-index: 9999;
+
+    transform: translate(-50%, -50%);
+
+    transition:
+      width 0.3s ease,
+      height 0.3s ease,
+      background 0.3s ease;
+  }
+
+  .custom-cursor span {
+    color: #fff;
+    font-size: 8px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .custom-cursor.is-active {
+    width: 88px;
+    height: 88px;
+  }
+
+  .custom-cursor.is-active span {
+    opacity: 1;
+  }
+}
+
+/* ABOUTの範囲だけ：ホバー時・選択中の文字を黒にする */
+.site-header.is-about nav a:hover,
+.site-header.is-about nav a.is-active {
+  color: #000 !important;
+}
+
+
+/* GET IN TOUCH：ホバーアニメーション */
+.contact a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: letter-spacing 0.4s ease;
+}
+
+/* 下線：最初は非表示 */
+.contact a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ホバー時：文字間を広げる */
+.contact a {
+  letter-spacing: inherit;
+  transition: letter-spacing 0.4s ease;
+}
+
+.contact a:hover {
+  letter-spacing: 0.2em;
+}
+
+
+.visual-grid .visual-card,
+.visual-grid .visual-three {
+  height: 30vw !important;
+  max-height: 420px !important;
+  grid-column: auto !important;
+}
+
+.visual-grid .visual-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .visual-grid .visual-card,
+  .visual-grid .visual-three {
+    height: 40vw !important;
+    max-height: 600px !important;
+  }
+}
+
+
+/* VISUALS：通常時は暗くする */
+.visual-grid .visual-card img {
+  filter: brightness(0.65);
+  transition:
+    filter 0.5s ease,
+    transform 0.6s ease;
+}
+
+/* ホバー時は元の明るさに戻す */
+.visual-grid .visual-card:hover img {
+  filter: brightness(1);
+  transform: scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .visual-grid .visual-card,
+  .visual-grid .visual-three {
+    height: 44vw !important;
+    max-height: 260px !important;
+  }
+}
+
+
+/* VISUALS：画像をさらに縦長にする */
+.visual-grid .visual-card {
+  height: 45vw !important;
+  max-height: none !important;
+  min-height: 0;
+}
+
+.visual-grid .visual-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .visual-grid .visual-card {
+    height: 60vw !important;
+    max-height: none !important;
+  }
+}
+
+
+/* CONTACT下の横長動画エリア */
+.bottom-video {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: #071931;
+}
+
+.bottom-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* スマートフォン */
+@media (max-width: 700px) {
+  .bottom-video {
+    height: 150px;
+  }
+}
+
+/* CONTACT下の横長動画ゾーン */
+.video-strip {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+.video-strip video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+/* スマホ */
+@media (max-width: 700px) {
+  .video-strip {
+    height: 120px;
+  }
+}
+
+/* CONTACT下の動画ゾーンの背景色を消す */
+.video-strip {
+  background: transparent !important;
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 180px;
+  overflow: hidden;
+}
+
+.video-strip video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+/* CONTACT下の横長動画：背景色の帯をなくす */
+.bottom-video {
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  overflow: hidden;
+}
+
+.bottom-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+@media (max-width: 700px) {
+  .bottom-video {
+    height: 120px;
+  }
+}
+
+/* フッターを動画の上に重ねる */
+footer {
+  position: relative;
+  z-index: 5;
+  margin-top: -64px;
+  min-height: 64px;
+  box-sizing: border-box;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* CONTACTセクションの表示範囲を広げる */
+.contact {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 18vh;
+  padding-bottom: 18vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* スマートフォン */
+@media (max-width: 700px) {
+  .contact {
+    min-height: 100svh;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+  }
+}
+
+
+/* VISUALS：プラスマークのホバー演出 */
+
+/* 画像カード */
+.visual-grid .visual-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+/* 画像：通常時は少し暗く */
+.visual-grid .visual-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+  transform: scale(1);
+  transition:
+    filter 0.6s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* 中央のプラスマーク */
+/* VISUALS：繊細なプラスマーク */
+.visual-grid .visual-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* 縦線と横線を細く描画 */
+  background:
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 48.5%,
+      rgba(255, 255, 255, 0.9) 48.5%,
+      rgba(255, 255, 255, 0.9) 51.5%,
+      transparent 51.5%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 48.5%,
+      rgba(255, 255, 255, 0.9) 48.5%,
+      rgba(255, 255, 255, 0.9) 51.5%,
+      transparent 51.5%
+    );
+}
+
+/* ホバー：画像が明るくなって少し拡大 */
+.visual-grid .visual-card:hover img {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+/* ホバーで小さくなりながら消える */
+.visual-grid .visual-card:hover::after,
+.visual-grid .visual-card:focus-visible::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* キーボード操作でも同じ演出 */
+.visual-grid .visual-card:focus-visible img {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+/* 動きを減らす設定の人にはアニメーションを控える */
+@media (prefers-reduced-motion: reduce) {
+  .visual-grid .visual-card img,
+  .visual-grid .visual-card::after {
+    transition: none;
+  }
+}
