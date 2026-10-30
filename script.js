@@ -407,6 +407,7 @@
     ScrollTrigger.refresh();
   });
 })();
+//カーソru
 (() => {
   const customCursor = document.querySelector('.custom-cursor');
   if (!customCursor) return;
@@ -415,8 +416,18 @@
     customCursor.style.left = `${event.clientX}px`;
     customCursor.style.top = `${event.clientY}px`;
   });
+  document.querySelectorAll('.site-header nav a').forEach((link) => {
+    link.addEventListener('mouseenter', () => {
+      customCursor.classList.add('is-active');
+      if (cursorText) {
+        cursorText.textContent = link.textContent.trim();
+      }
+    });
+    link.addEventListener('mouseleave', () => {
+      customCursor.classList.remove('is-active');
+    });
+  });
   document.querySelectorAll('a, button').forEach((element) => {
- 
     if (element.closest('.site-header')) return;
     element.addEventListener('mouseenter', () => {
       customCursor.classList.add('is-active');
@@ -434,44 +445,6 @@
       if (cursorText) {
         cursorText.textContent = 'VIEW MORE';
       }
-    });
-  });
-})();
-(() => {
-  const headerLinks = document.querySelectorAll(
-    '.site-header nav a[href="#about-title"],' +
-    '.site-header nav a[href="#projects-title"],' +
-    '.site-header nav a[href="#visuals"],' +
-    '.site-header nav a[href="#contact"]'
-  );
-  headerLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      const target = document.querySelector(
-        link.getAttribute('href')
-      );
-      if (!target) return;
-      event.preventDefault();
-      const rect = target.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const isMobile = window.matchMedia(
-        '(max-width: 600px)'
-      ).matches;
-      const position = isMobile ? 0.38 : 0.35;
-      const targetTop =
-        window.scrollY +
-        rect.top -
-        (viewportHeight - rect.height) * position;
-      const maxScroll =
-        document.documentElement.scrollHeight - viewportHeight;
-      window.scrollTo({
-        top: Math.max(0, Math.min(targetTop, maxScroll)),
-        behavior: 'smooth'
-      });
-      history.replaceState(
-        null,
-        '',
-        link.getAttribute('href')
-      );
     });
   });
 })();
