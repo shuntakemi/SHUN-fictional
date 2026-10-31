@@ -323,30 +323,31 @@
       }
     );
   }
-  const visualCards = $$('.visual-card');
-  if (visualCards.length) {
-    gsap.fromTo(
-      visualCards,
-      {
-        opacity: 0,
-        clipPath: 'inset(0 0 100% 0)',
-        scale: 0.97
-      },
-      {
-        opacity: 1,
-        clipPath: 'inset(0 0 0% 0)',
-        scale: 1,
-        duration: 1.1,
-        stagger: 0.18,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.visual-grid',
-          start: 'top 82%',
-          once: true
-        }
+const visualItems = $$('.accordion-item');
+if (visualItems.length) {
+  gsap.fromTo(
+    visualItems,
+    {
+      opacity: 0,
+      clipPath: 'inset(0 0 100% 0)',
+      y: 25
+    },
+    {
+      opacity: 1,
+      clipPath: 'inset(0 0 0% 0)',
+      y: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: 'power3.out',
+      clearProps: 'clipPath',
+      scrollTrigger: {
+        trigger: '.visual-accordion',
+        start: 'top 82%',
+        once: true
       }
-    );
-  }
+    }
+  );
+}
   const contactTitle = $('.contact h2');
   if (contactTitle) {
     gsap.fromTo(
@@ -428,12 +429,14 @@
     });
   });
   document.querySelectorAll('a, button').forEach((element) => {
-    if (element.closest('.site-header')) return;
+    if (element.closest('.site-header nav')) return;
     element.addEventListener('mouseenter', () => {
       customCursor.classList.add('is-active');
       if (!cursorText) return;
       if (element.classList.contains('visual-view-all')) {
         cursorText.textContent = 'VIEW ALL';
+      } else if (element.classList.contains('accordion-item')) {
+        cursorText.textContent = 'VIEW';
       } else if (element.closest('.contact')) {
         cursorText.textContent = 'GET IN TOUCH';
       } else {
