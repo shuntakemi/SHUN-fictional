@@ -1099,7 +1099,6 @@ footer {
     max-height: none;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1150,7 +1149,6 @@ footer {
   gap: 0;
   overflow: hidden;
 }
-
 .accordion-item {
   position: relative;
   display: block;
@@ -1160,7 +1158,6 @@ footer {
   overflow: hidden;
   transition: flex 0.9s cubic-bezier(.22, 1, .36, 1);
 }
-
 .accordion-item img {
   display: block;
   width: 100%;
@@ -1171,22 +1168,18 @@ footer {
     transform 1s cubic-bezier(.22, 1, .36, 1),
     filter 0.8s ease;
 }
-
 @media (hover: hover) and (pointer: fine) {
   .visual-accordion:hover .accordion-item {
     flex: 0.9;
   }
-
   .visual-accordion .accordion-item:hover {
     flex: 1.8;
   }
-
   .accordion-item:hover img {
     filter: brightness(1);
     transform: scale(1.02);
   }
 }
-
 .accordion-item span {
   position: absolute;
   left: 25px;
@@ -1201,7 +1194,6 @@ footer {
     opacity 0.5s ease,
     transform 0.5s ease;
 }
-
 .accordion-item:hover span {
   opacity: 1;
   transform: translateY(0);
@@ -1215,7 +1207,6 @@ footer {
   .accordion-item {
     flex: 1 !important;
   }
-
   .accordion-item span {
     left: 6px;
     bottom: 10px;
@@ -1225,7 +1216,6 @@ footer {
     transform: none;
   }
 }
-
 .visual-accordion {
   display: flex;
   width: 100%;
@@ -1238,15 +1228,12 @@ footer {
 .accordion-item:nth-child(1) {
   background: #146b23;
 }
-
 .accordion-item:nth-child(2) {
   background: #417596;
 }
-
 .accordion-item:nth-child(3) {
   background: #126d4e;
 }
-
 .accordion-item:nth-child(4) {
   background: #a10000;
 }
